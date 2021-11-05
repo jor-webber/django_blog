@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    My Blog
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/index.css" %}">
+    <link rel="stylesheet" href="{% static "blog/post.css" %}">
+{% endblock %}
+
+{% block content %}
+    <section id="welcome">
+        <header>
+            <img src="{% static "blog/images/jordan.jpg" %}" alt="Jordan - Author Of This Website" />
+            <h2>JORDAN'S BLOG</h2>
+        </header>
+        <p>Hi, I am Jordan and I love to blog about tech and fitness!</p>
+    </section>
+    <section id="latest-posts">
+        <h2>My Latest Thoughts</h2>
+        <ul>
+            {% for post in posts %}
+                {% include "blog/includes/post.html" %}
+            {% endfor %} 
+        </ul>
+    </section>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I am a software developer and fitness enthusiast. I love to travel and explore new places.
+        </p>
+        <p>
+            I am currently working on a project to create a web application that will allow users to create and share their own fitness routines.
+        </p>
+    </section>
+{% endblock %}
